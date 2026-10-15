@@ -95,14 +95,13 @@
     revealEls.forEach(function (el) { el.classList.add('is-in'); });
   }
 
-  /* ---------------- 5. 仓库链接（构建时替换为真实地址） ---------------- */
-  // 部署时会把下面两个占位替换成实际仓库地址；未替换时保持指向 GitHub 首页。
-  var REPO_URL = 'https://github.com/';
+  /* ---------------- 5. 仓库与下载链接 ---------------- */
+  var REPO_URL = 'https://github.com/Misery1003/ecom-image-grabber';
   var repoLink = document.getElementById('repoLink');
   var downloadBtn = document.getElementById('downloadBtn');
   if (repoLink) repoLink.href = REPO_URL;
-  if (downloadBtn && REPO_URL !== 'https://github.com/') {
+  if (downloadBtn) {
     // 压缩包直链：GitHub 会自动打包默认分支
-    downloadBtn.href = REPO_URL.replace(/\/$/, '') + '/archive/refs/heads/main.zip';
+    downloadBtn.href = REPO_URL + '/archive/refs/heads/main.zip';
   }
 })();

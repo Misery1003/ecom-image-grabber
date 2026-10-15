@@ -4,6 +4,9 @@
 
 Chrome / Edge 浏览器扩展（Manifest V3）· 本地运行 · 不收集任何数据。
 
+- 在线官网：<https://misery1003.github.io/ecom-image-grabber/>
+- 仓库地址：<https://github.com/Misery1003/ecom-image-grabber>
+
 ## 功能
 
 | 能力 | 说明 |
