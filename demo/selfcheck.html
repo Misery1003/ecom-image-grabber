@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>插件注入自检</title>
+  <style>
+    body { font-family: "Microsoft YaHei", sans-serif; padding: 40px; font-size: 22px; }
+    #out { padding: 20px; border-radius: 10px; background: #F1F3F9; line-height: 1.8; }
+    .ok { color: #12864A; font-weight: 700; }
+    .bad { color: #C0392B; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <h1>插件注入自检</h1>
+  <div id="out">检测中…</div>
+
+  <!-- 这个脚本由页面自身执行，用来说明"普通页面脚本"是能跑的 -->
+  <script>
+    // 内容脚本被注入后会往 body 里放 #igh-fab，这里轮询检查
+    (function () {
+      var out = document.getElementById('out');
+      function report() {
+        var lines = [];
+        lines.push('页面自身脚本：<span class="ok">已执行</span>');
+        lines.push('IGHosts 全局对象：' +
+          (typeof window.IGHosts !== 'undefined'
+            ? '<span class="ok">存在</span>（说明扩展的内容脚本已注入）'
+            : '<span class="bad">不存在</span>（内容脚本未注入）'));
+        var fab = document.getElementById('igh-fab');
+        lines.push('右下角按钮 #igh-fab：' +
+          (fab ? '<span class="ok">已创建</span> → 文案「' + fab.textContent.trim() + '」'
+               : '<span class="bad">未创建</span>'));
+        var css = getComputedStyle(document.body);
+        lines.push('注入样式表：' +
+          (document.querySelector('link[href*="content.css"]') ? '已加载' : '无 link 标签（属正常）'));
+        var probe = document.createElement('div');
+        probe.className = 'igh-fab';
+        document.body.appendChild(probe);
+        var st = getComputedStyle(probe);
+        lines.push('按钮样式（position/背景）：' + st.position + ' / ' +
+          (st.backgroundImage && st.backgroundImage !== 'none' ? '有渐变' : '无渐变'));
+        probe.remove();
+        out.innerHTML = lines.join('<br />');
+      }
+      setTimeout(report, 2500);
+    })();
+  </script>
+</body>
+</html>

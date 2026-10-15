@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>【模拟】纯棉宽松针织开衫 秋季新款 - 商品详情</title>
+  <style>
+    :root {
+      --ink: #1F2333;
+      --sub: #6B7185;
+      --line: #E8EAF1;
+      --brand: #FF5000;
+      --bg: #F4F5F8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                   "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      font-size: 14px; line-height: 1.6;
+    }
+    .notice {
+      background: #2B3040; color: #FFD8A8; padding: 10px 20px;
+      font-size: 13px; text-align: center;
+    }
+    .notice b { color: #fff; }
+    header.site {
+      background: #fff; border-bottom: 1px solid var(--line);
+      padding: 14px 24px; display: flex; align-items: center; gap: 14px;
+    }
+    header.site .shop-logo { width: 44px; height: 44px; }
+    header.site .shop-name { font-weight: 700; font-size: 16px; }
+    header.site .shop-meta { color: var(--sub); font-size: 12.5px; }
+    header.site .search {
+      margin-left: auto; display: flex; gap: 8px;
+    }
+    header.site input {
+      width: 320px; padding: 8px 14px; border: 1px solid var(--line);
+      border-radius: 999px; font-family: inherit; font-size: 13px; outline: none;
+    }
+    header.site button {
+      padding: 8px 20px; border: 0; border-radius: 999px; cursor: pointer;
+      background: linear-gradient(135deg, #FF7A45, #FF5000); color: #fff; font-weight: 600;
+      font-family: inherit;
+    }
+    main { max-width: 1180px; margin: 20px auto; padding: 0 20px 60px; }
+    .panel {
+      background: #fff; border-radius: 14px; padding: 22px;
+      margin-bottom: 18px; box-shadow: 0 2px 10px rgba(31, 35, 51, 0.05);
+    }
+    .gallery-main {
+      width: 100%; max-width: 520px; border-radius: 12px; overflow: hidden;
+      border: 1px solid var(--line); display: block; margin: 0 auto;
+    }
+    .thumbs { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 14px; }
+    .thumbs img { width: 76px; height: 76px; border-radius: 8px; border: 2px solid var(--line); }
+    .thumbs img.active { border-color: var(--brand); }
+    .scene { width: 100%; height: 300px; background-size: cover; background-position: center; border-radius: 12px; }
+    h1 { font-size: 21px; margin: 0 0 8px; }
+    .price { color: var(--brand); font-size: 27px; font-weight: 800; }
+    .price small { font-size: 13px; color: var(--sub); font-weight: 400; }
+    .tags span {
+      display: inline-block; padding: 3px 10px; margin-right: 8px; border-radius: 6px;
+      background: #FFF1EA; color: var(--brand); font-size: 12px;
+    }
+    h2 { font-size: 16px; margin: 0 0 12px; }
+    .detail-imgs img { width: 100%; border-radius: 10px; margin-bottom: 12px; display: block; }
+    .noise-note { color: var(--sub); font-size: 12.5px; }
+    code { background: #F1F3F9; padding: 1px 6px; border-radius: 5px; font-size: 12px; }
+    footer.mock { text-align: center; color: var(--sub); font-size: 12.5px; padding: 24px; }
+  </style>
+</head>
+<body>
+  <div class="notice">
+    这是<b>本地模拟的商品详情页</b>，用于测试「图提取」插件。
+    页面右下角应出现蓝色<b>「获取图片」</b>按钮。
+  </div>
+
+  <header class="site">
+    <img class="shop-logo" src="assets/logo.svg" alt="店铺 LOGO" width="80" height="80" />
+    <div>
+      <div class="shop-name">模拟旗舰店</div>
+      <div class="shop-meta">已售 1.2 万件 · 综合评分 4.9</div>
+    </div>
+    <div class="search">
+      <input type="text" placeholder="搜索店内商品" />
+      <button type="button">搜索</button>
+      <img src="assets/icon-cart.svg" alt="购物车" width="48" height="48" style="width:26px;height:26px" />
+    </div>
+  </header>
+
+  <main>
+    <!-- 主图：带 srcset，插件应取其中最大的一张 -->
+    <section class="panel">
+      <img
+        class="gallery-main"
+        src="assets/product-4.png"
+        srcset="assets/product-3.png 400w, assets/product-1.png 900w, assets/product-5.png 1600w"
+        sizes="(max-width: 600px) 100vw, 520px"
+        alt="商品主图" />
+      <div class="thumbs">
+        <img class="active" src="assets/product-1.png" alt="缩略图1" width="800" height="800" />
+        <img src="assets/product-2.png" alt="缩略图2" width="800" height="800" />
+        <img src="assets/product-3.png" alt="缩略图3" width="750" height="750" />
+        <img src="assets/product-4.png" alt="缩略图4" width="640" height="640" />
+      </div>
+    </section>
+
+    <!-- 商品信息 -->
+    <section class="panel">
+      <h1>【模拟】纯棉宽松针织开衫 秋季新款 慵懒风外套</h1>
+      <div class="price">¥ 268.00 <small>（模拟价格）</small></div>
+      <div class="tags" style="margin:12px 0">
+        <span>包邮</span><span>7天无理由</span><span>现货速发</span>
+      </div>
+      <p class="noise-note">
+        本页仅用于验证插件功能。下面混入了各种真实站点常见的图片写法：
+        懒加载 <code>data-src</code>、背景图 <code>background-image</code>、
+        以及应当被过滤掉的 LOGO / 图标 / 1×1 像素。
+      </p>
+    </section>
+
+    <!-- 懒加载图 -->
+    <section class="panel">
+      <h2>懒加载图片（data-src / data-original）</h2>
+      <img data-src="assets/product-6.png" src="assets/spacer.svg" alt="懒加载商品图" width="600" height="600" />
+      <img data-original="assets/product-2.png" src="assets/spacer.svg" alt="懒加载细节图" width="800" height="800" />
+      <img data-ks-lazyload="assets/product-3.png" src="assets/spacer.svg" alt="懒加载场景图" width="750" height="750" />
+    </section>
+
+    <!-- 背景图 -->
+    <section class="panel">
+      <h2>背景图（background-image）</h2>
+      <div class="scene" style="background-image:url('assets/product-5.png')"></div>
+    </section>
+
+    <!-- 商品详情长图 -->
+    <section class="panel detail-imgs">
+      <h2>商品详情</h2>
+      <img src="assets/product-1.png" alt="详情图1" width="800" height="800" />
+      <img src="assets/product-5.png" alt="详情图2" width="1200" height="900" />
+    </section>
+
+    <!-- 干扰项：都应被过滤 -->
+    <section class="panel">
+      <h2>应被过滤的干扰图</h2>
+      <ul class="noise-note">
+        <li>80×80 店铺 LOGO（&lt; 100）</li>
+        <li>48×48 购物车图标（&lt; 100）</li>
+        <li>1×1 占位 spacer</li>
+        <li>文件名含 <code>icon</code> / <code>logo</code> 的图片</li>
+      </ul>
+      <img src="assets/logo.svg" width="80" height="80" alt="LOGO" />
+      <img src="assets/icon-cart.svg" width="48" height="48" alt="图标" />
+      <img src="assets/spacer.svg" width="1" height="1" alt="占位" />
+    </section>
+  </main>
+
+  <footer class="mock">模拟页面 · 仅用于插件功能测试</footer>
+</body>
+</html>

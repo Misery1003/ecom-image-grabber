@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>图提取 · 图片选择与下载</title>
+  <link rel="stylesheet" href="gallery.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__brand">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+             stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="4" />
+          <circle cx="8.5" cy="8.5" r="1.6" />
+          <path d="m21 15-5-5L5 21" />
+        </svg>
+      </span>
+      <div class="brand-text">
+        <strong>图提取</strong>
+        <span id="sourceInfo" class="brand-sub">正在读取…</span>
+      </div>
+    </div>
+
+    <div class="topbar__stats">
+      <span class="stat"><b id="statTotal">0</b> 张图片</span>
+      <span class="stat"><b id="statSelected">0</b> 已选中</span>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <div class="toolbar__left">
+      <button id="btnSelectAll" class="btn" type="button">全选</button>
+      <button id="btnInvert" class="btn" type="button">反选</button>
+      <button id="btnClear" class="btn" type="button">清空选择</button>
+      <label class="filter">
+        <input id="chkFilter" type="checkbox" checked />
+        仅显示 ≥100×100 的图片
+      </label>
+    </div>
+
+    <div class="toolbar__right">
+      <button id="btnDownload" class="btn btn--primary" type="button" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3v12" /><path d="m7 11 5 5 5-5" /><path d="M5 21h14" />
+        </svg>
+        <span id="downloadLabel">下载选中（PNG）</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- 下载进度 -->
+  <div id="progressWrap" class="progress-wrap" hidden>
+    <div class="progress-head">
+      <span id="progressText">准备中…</span>
+      <span id="progressCount">0 / 0</span>
+    </div>
+    <div class="progress"><div id="progressBar" class="progress__bar"></div></div>
+  </div>
+
+  <main id="grid" class="grid" aria-live="polite"></main>
+
+  <div id="empty" class="empty" hidden>
+    <div class="empty__icon" aria-hidden="true">🖼️</div>
+    <h2>还没有提取到图片</h2>
+    <p>请回到电商商品详情页，点击页面右下角的<strong>「获取图片」</strong>按钮。</p>
+  </div>
+
+  <template id="cardTpl">
+    <article class="card">
+      <label class="card__check">
+        <input type="checkbox" class="card__checkbox" />
+        <span class="card__tick" aria-hidden="true"></span>
+      </label>
+      <div class="card__thumb">
+        <img loading="lazy" decoding="async" alt="" />
+        <div class="card__state" hidden></div>
+      </div>
+      <div class="card__meta">
+        <span class="card__size">—</span>
+        <span class="card__source">—</span>
+      </div>
+    </article>
+  </template>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="js/hosts.js"></script>
+  <script src="gallery.js"></script>
+</body>
+</html>
